@@ -1,0 +1,9 @@
+.movie {
+    flex:1 1 30%;
+    text-align: center;
+    margin: 30px;
+}
+
+.poster{
+    box-shadow: 0px 0px 20px gray;
+}

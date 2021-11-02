@@ -2,6 +2,7 @@ import React from "react";
 import { gql } from "@apollo/client";
 import { useQuery } from "@apollo/react-hooks";
 import "./Home.css";
+import Movie from "../components/Movie";
 
 const GET_MOVIES = gql`
     {
@@ -13,7 +14,7 @@ const GET_MOVIES = gql`
 `;
 
 export default () => {
-    const { loading, data } = useQuery(GET_MOVIES);
+    const { loading, data} = useQuery(GET_MOVIES);
     return (
         <div className="container">
             <div className="header">
@@ -21,9 +22,15 @@ export default () => {
                 <p className="subTitle">This is The Revolution!</p>
             </div>
             {loading && <p className="loading">Loading...</p>}
-            {!loading &&
-            data.movies &&
-            data.movies.map(m => <p className="moive" key={m.id} id={m.id}>{m.id}</p> )}
+            <div className="movie_container">
+            {
+                !loading &&
+                data.movies &&
+                data.movies.map((m) =>
+                        <Movie key={m.id} id={m.id} poster={m.medium_cover_image}/>
+                )
+            }
+            </div>
         </div>
     );
 };

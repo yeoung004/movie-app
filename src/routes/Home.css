@@ -31,9 +31,8 @@
     color: gray;
 }
 
-.moive{
+.movie_container{
     width: 100%;
     display: flex;
-    justify-content: center;
-    flex:1 1 30%;
+    flex-wrap: wrap;
 }
