@@ -1,6 +1,7 @@
 import { useParams } from "react-router";
 import { gql, useQuery } from "@apollo/client";
 import { Link } from "react-router-dom";
+import "./Detail.css";
 
 const GET_MOVIE = gql`
     query getMoive($id: Int!) {
@@ -22,34 +23,35 @@ export default () => {
 
     return (
         <div className="detail_container">
-            {console.log(data)}
+            <Link className="Btn_home" to="/">◀Home</Link>
             {loading ?
-                <div className="detail_container__loading">loading...</div>
+                <div className="loading_container">
+                    <p className="loading_container__loading">loading...</p>
+                </div>             
                 :
-                data && data.movie ?
-                    <div className="detail_container__movie">
-                        <Link to="/">Go to main</Link>
-                        <div className="detail_container__movie__title">
-                            <img src={data.movie.medium_cover_image}/>
-                        </div>
+                <div className="detail_container__movie">
+                    <div className="detail_top">
                         <div className="detail_container__movie__poster">
-                            {data.movie.title}
+                            <img src={data?.movie?.medium_cover_image}/>
                         </div>
-                        <div className="detail_container__movie__rating">
-                            {data.movie.rating}
+                        <div className="detail_container__movie__info">
+                            <div className="detail_container__movie__title">
+                                {data?.movie?.title}
+                            </div>
+                            <div className="detail_container__movie__rating">
+                                Rating : {data?.movie?.rating}
+                            </div>
+                            <div className="detail_container__movie__lan">
+                                Language : {data?.movie?.language}
+                            </div>
                         </div>
-                        <div className="detail_container__movie__lan">
-                            {data.movie.language}
-                        </div>
+                    </div>
+                    <div className="detail_bottom">
                         <div className="detail_container__movie__des">
-                            {data.movie.description_intro}
+                            {data?.movie?.description_intro}
                         </div>
                     </div>
-                    :
-                    <div>Not Found Moive
-                        <br />
-                        <Link to="/">Go to main</Link>
-                    </div>
+                </div>
             }
         </div>
     );

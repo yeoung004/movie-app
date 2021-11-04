@@ -24,9 +24,7 @@ export default () => {
             {loading && <p className="loading">Loading...</p>}
             <div className="movie_container">
             {
-                !loading &&
-                data.movies &&
-                data.movies.map((m) =>
+                data?.movies.map((m) =>
                         <Movie key={m.id} id={m.id} poster={m.medium_cover_image}/>
                 )
             }

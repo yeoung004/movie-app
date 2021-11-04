@@ -1,0 +1,117 @@
+@keyframes loading-bar{
+    from{
+        left: 0%;
+    }
+    to{
+        left: 120%;
+    }
+}
+
+body, #root, .detail_container{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.detail_container{
+    overflow-y: scroll;
+    background: linear-gradient(45deg, rgb(112, 23, 105),rgb(241, 18, 200),rgb(228, 193, 225));
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.Btn_home{
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    padding: 15px;
+    text-decoration: none;
+    background-color: black;
+    font-size: 1.5rem;
+    color: wheat;
+    font-weight: bold;
+    border-radius: 10%;
+    box-shadow: 0px 0px 25px whitesmoke;
+}
+
+
+.loading_container__loading::after {
+    position: fixed;
+    content: "";
+    width: 300px;
+    height: 200px;
+    opacity: 30%;
+    background-color: whitesmoke;
+    transform: skew(45deg);
+    animation-name: loading-bar;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.loading_container {
+    align-self: center;
+    width: 100%;
+    height: 200px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.308);
+    background: linear-gradient(45deg, rgb(200, 49, 175),rgb(134, 75, 173),rgb(209, 145, 85));
+    display: flex;
+    justify-content: center;
+}
+
+.loading_container__loading {
+    line-height: 250%;
+    text-transform: capitalize;
+    color: black;
+    font-size: 5rem;
+}
+
+
+.detail_container__movie{
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 50%;
+    padding: 1%;
+}
+
+.detail_top{
+    display: flex;
+}
+
+.detail_container__movie__poster img{
+    border-radius: 30px;
+}
+
+.detail_container__movie__info{
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding-left: 20px;
+}
+
+.detail_container__movie__title{
+    font-size: 1.5rem;
+}
+
+.detail_container__movie__rating{
+    line-height: 50px;
+    font-size: 1.1rem;
+}
+
+.detail_container__movie__lan{
+    text-transform: uppercase;
+}
+
+.detail_bottom{
+    margin-top: 20px;
+    padding: 30px;
+    border: 2px solid black
+}
+
+.detail_container__movie__des{
+    line-height: 25px;
+    font-size: 1.1rem;
+}
